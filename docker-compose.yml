@@ -3,6 +3,7 @@ version: '2.1'
 volumes:
    db-backups:
    geoserver-data:
+   geoserver-source:
    geo-db-data:
 
 services:
@@ -22,6 +23,7 @@ services:
       image: kartoza/geoserver:2.13.0
       volumes:
         - geoserver-data:/opt/geoserver/data_dir
+        - geoserver-source:/usr/local/tomcat/webapps/geoserver
       ports:
         - "8600:8080"
       restart: on-failure
